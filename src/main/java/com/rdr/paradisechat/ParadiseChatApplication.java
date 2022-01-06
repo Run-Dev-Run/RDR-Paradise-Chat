@@ -9,5 +9,4 @@ public class ParadiseChatApplication {
     public static void main(String[] args) {
         SpringApplication.run(ParadiseChatApplication.class, args);
     }
-
 }
