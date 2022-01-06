@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
-import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 
 @Configuration
 @EnableWebSocket
@@ -17,11 +16,7 @@ public class SocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(socketHandler, "TODO")
-            .setAllowedOrigins("*")
-            .withSockJS()
-            .setClientLibraryUrl(
-                "TODO")
-            .setInterceptors(new HttpSessionHandshakeInterceptor());
+        registry.addHandler(socketHandler, "/api/v1/chat")
+            .setAllowedOrigins("*");
     }
 }
